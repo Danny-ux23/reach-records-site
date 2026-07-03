@@ -23,7 +23,17 @@ export default function Home() {
                     Roster
                   </span>
                   <span className="text-[11px] font-light tracking-[0.1em] opacity-60">
-                    01
+                    001
+                  </span>
+                </TransitionLink>
+              </li>
+              <li>
+                <TransitionLink href="/legacy" className="flex items-center group">
+                  <span className="text-[11px] font-medium tracking-[0.16em] uppercase transition-opacity group-hover:opacity-40 w-24">
+                    Legacy
+                  </span>
+                  <span className="text-[11px] font-light tracking-[0.1em] opacity-60">
+                    002
                   </span>
                 </TransitionLink>
               </li>
@@ -33,7 +43,7 @@ export default function Home() {
                     Contact
                   </span>
                   <span className="text-[11px] font-light tracking-[0.1em] opacity-60">
-                    02
+                    003
                   </span>
                 </TransitionLink>
               </li>

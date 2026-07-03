@@ -224,49 +224,6 @@ export default function RosterPage() {
 
       </div>
 
-      {/* Legacy Artists */}
-      {legacyArtists.length > 0 && (
-        <div
-          className="px-10 py-5 flex items-center gap-6"
-          style={{ borderTop: "1px solid rgba(239,239,235,0.06)" }}
-        >
-          <span
-            className="text-[9px] tracking-[0.3em] uppercase font-light shrink-0"
-            style={{ color: "rgba(239,239,235,0.25)" }}
-          >
-            Legacy
-          </span>
-          <div className="flex items-center gap-4">
-            {legacyArtists.map((artist) => (
-              <button
-                key={artist.slug}
-                onClick={() => router.push(`/artists/${artist.slug}`)}
-                className="flex items-center gap-2 group transition-opacity hover:opacity-100"
-                style={{ opacity: 0.4 }}
-                title={artist.name}
-              >
-                {artist.profileImage && (
-                  <div className="relative w-7 h-7 rounded-full overflow-hidden shrink-0">
-                    <Image
-                      src={artist.profileImage}
-                      alt={artist.name}
-                      fill
-                      sizes="28px"
-                      className="object-cover"
-                    />
-                  </div>
-                )}
-                <span
-                  className="text-[10px] tracking-[0.15em] uppercase font-light"
-                  style={{ color: "rgba(239,239,235,0.7)" }}
-                >
-                  {artist.name}
-                </span>
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
     </div>
   );
 }
