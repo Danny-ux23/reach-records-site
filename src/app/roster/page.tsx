@@ -6,6 +6,9 @@ import Image from "next/image";
 import Nav from "@/components/Nav";
 import { artists } from "@/data/artists";
 
+const activeArtists = artists.filter((a) => !a.legacy);
+const legacyArtists = artists.filter((a) => a.legacy);
+
 export default function RosterPage() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [visible, setVisible] = useState(true);
@@ -23,11 +26,11 @@ export default function RosterPage() {
   );
 
   const next = useCallback(() => {
-    goTo((activeIndex + 1) % artists.length);
+    goTo((activeIndex + 1) % activeArtists.length);
   }, [activeIndex, goTo]);
 
   const prev = useCallback(() => {
-    goTo((activeIndex - 1 + artists.length) % artists.length);
+    goTo((activeIndex - 1 + activeArtists.length) % activeArtists.length);
   }, [activeIndex, goTo]);
 
   useEffect(() => {
@@ -35,7 +38,7 @@ export default function RosterPage() {
     return () => clearInterval(timer);
   }, [next]);
 
-  const active = artists[activeIndex];
+  const active = activeArtists[activeIndex];
 
   return (
     <div
@@ -191,7 +194,7 @@ export default function RosterPage() {
 
             {/* Dots */}
             <div className="flex items-center gap-2">
-              {artists.map((_, i) => (
+              {activeArtists.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => goTo(i)}
@@ -214,12 +217,56 @@ export default function RosterPage() {
               className="text-[10px] tracking-[0.1em] font-light"
               style={{ color: "rgba(239,239,235,0.25)" }}
             >
-              {String(activeIndex + 1).padStart(2, "0")}/{String(artists.length).padStart(2, "0")}
+              {String(activeIndex + 1).padStart(2, "0")}/{String(activeArtists.length).padStart(2, "0")}
             </span>
           </div>
         </div>
 
       </div>
+
+      {/* Legacy Artists */}
+      {legacyArtists.length > 0 && (
+        <div
+          className="px-10 py-5 flex items-center gap-6"
+          style={{ borderTop: "1px solid rgba(239,239,235,0.06)" }}
+        >
+          <span
+            className="text-[9px] tracking-[0.3em] uppercase font-light shrink-0"
+            style={{ color: "rgba(239,239,235,0.25)" }}
+          >
+            Legacy
+          </span>
+          <div className="flex items-center gap-4">
+            {legacyArtists.map((artist) => (
+              <button
+                key={artist.slug}
+                onClick={() => router.push(`/artists/${artist.slug}`)}
+                className="flex items-center gap-2 group transition-opacity hover:opacity-100"
+                style={{ opacity: 0.4 }}
+                title={artist.name}
+              >
+                {artist.profileImage && (
+                  <div className="relative w-7 h-7 rounded-full overflow-hidden shrink-0">
+                    <Image
+                      src={artist.profileImage}
+                      alt={artist.name}
+                      fill
+                      sizes="28px"
+                      className="object-cover"
+                    />
+                  </div>
+                )}
+                <span
+                  className="text-[10px] tracking-[0.15em] uppercase font-light"
+                  style={{ color: "rgba(239,239,235,0.7)" }}
+                >
+                  {artist.name}
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -37,6 +37,7 @@ export interface Artist {
   syncExamples: SyncExample[];
   discoUrl: string;
   socials: Socials;
+  legacy?: boolean;
 }
 
 export const artists: Artist[] = [
@@ -116,6 +117,7 @@ export const artists: Artist[] = [
     ],
     photos: [],
     syncExamples: [],
+    legacy: true,
     discoUrl: "https://www.discogs.com/artist/3095884-Andy-Mineo",
     socials: {
       instagram: "https://www.instagram.com/andymineo",
