@@ -369,7 +369,7 @@ export const artists: Artist[] = [
     bio: "Singer, songwriter, and leading pioneer in the emerging genre of afrobeat music, Limoblaze (AKA Samuel Onwubiko) is an award-winning musician born in Makurdi, Nigeria, currently residing in London, UK. He has built an international fanbase by marrying afrobeat music with hypnotizing melodies, all while unashamedly promoting his passion for God and active life in ministry. His viral hit 'Jireh (My Provider)' ft. Lecrae and Happi catapulted him onto multiple Billboard charts and cemented his place as a global voice in Christian music.",
     profileImage: "/images/artists/limoblaze.jpg",
     heroImage: "/images/artists/limoblaze.jpg",
-    imagePosition: "center center",
+    imagePosition: "center 30%",
     stats: [
       { value: "1.1M+", label: "Monthly Listeners" },
       { value: "341K+", label: "YouTube Subscribers" },
@@ -408,7 +408,7 @@ export const artists: Artist[] = [
     bio: "Jackie Hill Perry is a dynamic artist, author, poet, teacher, and speaker whose work has resonated deeply with audiences around the world. Known for her powerful blend of spoken word and hip-hop, Jackie is also an accomplished author exploring themes of identity, grace, and spiritual growth. After signing with Reach Records, she is set to release PRACTICE — her first project since 2018 — pushing artistic boundaries while staying true to her roots. Wife to Preston Perry and mother of four, Jackie is a cultural force inspiring a generation to live out their faith boldly.",
     profileImage: "/images/artists/jackie-hill-perry.jpg",
     heroImage: "/images/artists/jackie-hill-perry.jpg",
-    imagePosition: "center center",
+    imagePosition: "center 15%",
     stats: [
       { value: "1.4M", label: "Instagram Followers" },
       { value: "386K", label: "YouTube Subscribers" },
