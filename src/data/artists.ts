@@ -361,8 +361,6 @@ export const artists: Artist[] = [
       facebook: "https://www.facebook.com/whatuprg",
     },
   },
-];
-
   {
     name: "Limoblaze",
     slug: "limoblaze",
@@ -477,6 +475,8 @@ export const artists: Artist[] = [
       youtube: "https://www.youtube.com/@2819Church",
     },
   },
+];
+
 export function getArtistBySlug(slug: string): Artist | undefined {
   return artists.find((a) => a.slug === slug);
 }
