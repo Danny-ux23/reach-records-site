@@ -68,9 +68,9 @@ export const artists: Artist[] = [
       "'This Is My Time' and 'Where We Come From' featured on the official PlayStation soundtrack",
     ],
     youtubeVideos: [
-      { id: "dQw4w9WgXcQ", title: "Coming In Hot (ft. Andy Mineo)" },
-      { id: "dQw4w9WgXcQ", title: "I'll Find You (ft. Tori Kelly)" },
-      { id: "dQw4w9WgXcQ", title: "Sunday Morning (ft. Kirk Franklin)" },
+      { id: "x4Gifu5r-y8", title: "Coming In Hot" },
+      { id: "urNrzzYWUuk", title: "Get Out My Way" },
+      { id: "jF5kEWD9q-U", title: "Get Back Right" },
     ],
     photos: [],
     syncExamples: [
