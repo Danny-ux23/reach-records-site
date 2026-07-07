@@ -149,9 +149,9 @@ export const artists: Artist[] = [
       "Collaborated with Def Jam recording artist Landsctrip Chip",
     ],
     youtubeVideos: [
-      { id: "dQw4w9WgXcQ", title: "Dirty Birds" },
-      { id: "dQw4w9WgXcQ", title: "Drip Lee (ft. WHATUPRG)" },
-      { id: "dQw4w9WgXcQ", title: "No Church In A While (ft. Lecrae)" },
+      { id: "Fuo-RkgO3Q0", title: "NBA 2K20 — Bigger Than Me" },
+      { id: "2irDsH6-5_E", title: "MOVE Viral Moment" },
+      { id: "Cxpzw9HkLKY", title: "MOVE IT! Remix" },
     ],
     photos: [],
     syncExamples: [
