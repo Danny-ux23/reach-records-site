@@ -150,9 +150,9 @@ export const artists: Artist[] = [
       "Collaborated with Def Jam recording artist Landsctrip Chip",
     ],
     youtubeVideos: [
-      { id: "Fuo-RkgO3Q0", title: "NBA 2K20 — Bigger Than Me" },
-      { id: "2irDsH6-5_E", title: "MOVE Viral Moment" },
-      { id: "Cxpzw9HkLKY", title: "MOVE IT! Remix" },
+      { id: "2irDsH6-5_E", title: "MOVE feat. Lecrae" },
+      { id: "Fuo-RkgO3Q0", title: "Bigger Than Me feat. nobigdyl." },
+      { id: "ndIqqY_wu6Y", title: "Let Go Let God feat. Zaytoven" },
     ],
     photos: [],
     syncExamples: [
@@ -274,9 +274,9 @@ export const artists: Artist[] = [
       "'Dum Dum' featured on Fox TV Series So You Think You Can Dance",
     ],
     youtubeVideos: [
-      { id: "b8jSR88aV9s", title: "Get Out My Way — Gran Turismo (2023 Film)" },
-      { id: "urNrzzYWUuk", title: "Get Out My Way — Apple iPhone 14 Commercial (2023)" },
-      { id: "ZWwPlldEiUY", title: "Dum Dum feat. Lecrae — 16M+ Views" },
+      { id: "ZWwPlldEiUY", title: "Dum Dum feat. Lecrae" },
+      { id: "b8jSR88aV9s", title: "Get Out My Way" },
+      { id: "Z_frYtp2q70", title: "Victory Lap" },
     ],
     photos: [],
     syncExamples: [
