@@ -208,7 +208,7 @@ export const artists: Artist[] = [
     },
   },
   {
-    name: "Wande",
+    name: "Anike",
     slug: "wande",
     genre: "Hip-Hop / R&B",
     accentColor: "#C8B8A0",
