@@ -213,8 +213,8 @@ export const artists: Artist[] = [
     genre: "Hip-Hop / R&B",
     accentColor: "#C8B8A0",
     bio: "A Nigerian born and Texas raised hip hop artist with the power to inspire. Her infectious personality and raps effortlessly leave a lasting impression on new listeners. Being a woman in a male-dominated field, she doesn't view it as a hindrance, but rather a way to empower more women to be bold and go after their goals. She is leveraging her career to usher a new sound into Christian music while pushing the boundaries for pioneering women of faith.",
-    profileImage: "/images/artists/wande.png",
-    heroImage: "/images/artists/wande.png",
+    profileImage: "/images/artists/wande.jpg",
+    heroImage: "/images/artists/wande.jpg",
     imagePosition: "center center",
     stats: [
       { value: "4.3B", label: "Apple Campaign Views" },
