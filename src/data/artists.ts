@@ -69,9 +69,9 @@ export const artists: Artist[] = [
       "'This Is My Time' and 'Where We Come From' featured on the official PlayStation soundtrack",
     ],
     youtubeVideos: [
-      { id: "x4Gifu5r-y8", title: "Coming In Hot" },
-      { id: "b8jSR88aV9s", title: "Get Out My Way" },
-      { id: "jF5kEWD9q-U", title: "Get Back Right" },
+      { id: "Jv8IqJm6q7w", title: "I'll Find You ft. Tori Kelly" },
+      { id: "i58IH2D8sWQ", title: "Blessings ft. Ty Dolla $ign" },
+      { id: "N2mqbhpSfdg", title: "Coming In Hot ft. Andy Mineo" },
     ],
     photos: [],
     syncExamples: [
@@ -112,9 +112,9 @@ export const artists: Artist[] = [
       ">10M views for 'You Can't Stop Me' | >8M streams for Uncomfortable album",
     ],
     youtubeVideos: [
-      { id: "o_pNTEpJqQU", title: "Manolo (feat. Lecrae)" },
-      { id: "gWjH5js2boI", title: "One Sixteen (feat. KB & Andy Mineo)" },
-      { id: "l4a51FM2VC4", title: "The Saints (Andy Mineo feat. Trip Lee & KB)" },
+      { id: "WopyrETP-CU", title: "You Can't Stop Me" },
+      { id: "N2mqbhpSfdg", title: "Coming In Hot ft. Lecrae" },
+      { id: "2W1KT8xXaN8", title: "Uncomfortable" },
     ],
     photos: [],
     syncExamples: [],
@@ -313,9 +313,9 @@ export const artists: Artist[] = [
       "Previously pastored at Cornerstone Church in Atlanta, GA",
     ],
     youtubeVideos: [
-      { id: "dQw4w9WgXcQ", title: "Supernatural" },
-      { id: "dQw4w9WgXcQ", title: "You're Here" },
-      { id: "dQw4w9WgXcQ", title: "Robot" },
+      { id: "vWShMswMH8Y", title: "Right Out The Gate" },
+      { id: "982PKhPsIHk", title: "Sweet Victory ft. Dimitri McDowell & Leah Smith" },
+      { id: "o_pNTEpJqQU", title: "Manolo ft. Lecrae" },
     ],
     photos: [],
     syncExamples: [],
