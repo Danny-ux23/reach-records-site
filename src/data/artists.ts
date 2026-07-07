@@ -69,7 +69,7 @@ export const artists: Artist[] = [
     ],
     youtubeVideos: [
       { id: "x4Gifu5r-y8", title: "Coming In Hot" },
-      { id: "urNrzzYWUuk", title: "Get Out My Way" },
+      { id: "b8jSR88aV9s", title: "Get Out My Way" },
       { id: "jF5kEWD9q-U", title: "Get Back Right" },
     ],
     photos: [],
