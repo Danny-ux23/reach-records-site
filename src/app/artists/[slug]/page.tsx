@@ -23,6 +23,10 @@ export default async function ArtistPage({ params }: { params: Promise<{ slug: s
   const artist = getArtistBySlug(slug);
   if (!artist) notFound();
 
+  const currentIndex = artists.findIndex((a) => a.slug === slug);
+  const prevArtist = artists[(currentIndex - 1 + artists.length) % artists.length];
+  const nextArtist = artists[(currentIndex + 1) % artists.length];
+
   return (
     <div style={{ backgroundColor: "#EFEFEB", fontFamily: "var(--font-space-grotesk)", color: "#1a1a1a" }}>
       <Nav />
@@ -297,6 +301,41 @@ export default async function ArtistPage({ params }: { params: Promise<{ slug: s
         >
           ← Roster
         </Link>
+
+        <div className="flex items-center gap-10">
+          <Link
+            href={`/artists/${prevArtist.slug}`}
+            className="flex flex-col items-center gap-1 group"
+          >
+            <span
+              className="text-[9px] tracking-[0.2em] uppercase font-light opacity-30 group-hover:opacity-60 transition-opacity"
+            >
+              ← Prev
+            </span>
+            <span
+              className="text-[11px] tracking-[0.12em] uppercase font-medium opacity-40 group-hover:opacity-100 transition-opacity"
+            >
+              {prevArtist.name}
+            </span>
+          </Link>
+
+          <Link
+            href={`/artists/${nextArtist.slug}`}
+            className="flex flex-col items-center gap-1 group"
+          >
+            <span
+              className="text-[9px] tracking-[0.2em] uppercase font-light opacity-30 group-hover:opacity-60 transition-opacity"
+            >
+              Next →
+            </span>
+            <span
+              className="text-[11px] tracking-[0.12em] uppercase font-medium opacity-40 group-hover:opacity-100 transition-opacity"
+            >
+              {nextArtist.name}
+            </span>
+          </Link>
+        </div>
+
         <a
           href={artist.discoUrl}
           target="_blank"
