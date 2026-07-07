@@ -230,9 +230,9 @@ export const artists: Artist[] = [
       "'Be the Light' used in the July 2020 WNBA official trailer",
     ],
     youtubeVideos: [
-      { id: "dQw4w9WgXcQ", title: "Woo" },
-      { id: "dQw4w9WgXcQ", title: "Blessed Up" },
-      { id: "dQw4w9WgXcQ", title: "Come My Way (ft. Teni)" },
+      { id: "En542-H2FW8", title: "Be The Light" },
+      { id: "wFt4nLod0jg", title: "Come My Way" },
+      { id: "uw1eNMuO5Qs", title: "Woo" },
     ],
     photos: [],
     syncExamples: [
