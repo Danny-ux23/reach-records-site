@@ -176,16 +176,16 @@ export default function RosterPage() {
             <div className="flex items-center gap-6">
               <button
                 onClick={prev}
-                className="text-[11px] tracking-[0.1em] transition-opacity hover:opacity-100"
-                style={{ color: "rgba(239,239,235,0.35)" }}
+                className="text-[22px] transition-opacity hover:opacity-100"
+                style={{ color: "rgba(239,239,235,0.5)" }}
                 aria-label="Previous"
               >
                 ←
               </button>
               <button
                 onClick={next}
-                className="text-[11px] tracking-[0.1em] transition-opacity hover:opacity-100"
-                style={{ color: "rgba(239,239,235,0.35)" }}
+                className="text-[22px] transition-opacity hover:opacity-100"
+                style={{ color: "rgba(239,239,235,0.5)" }}
                 aria-label="Next"
               >
                 →
