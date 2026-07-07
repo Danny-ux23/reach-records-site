@@ -33,14 +33,14 @@ export default async function ArtistPage({ params }: { params: Promise<{ slug: s
 
       {/* ── ARTIST NAV ──────────────────────────────────────────── */}
       <div
-        className="flex justify-between items-center px-12 md:px-20 py-4"
-        style={{ backgroundColor: "#1a1a1a", borderBottom: "1px solid rgba(239,239,235,0.06)" }}
+        className="fixed left-0 right-0 z-40 flex justify-between items-center px-12 md:px-20 py-3"
+        style={{ top: "72px", backgroundColor: "rgba(26,26,26,0.92)", backdropFilter: "blur(8px)", borderBottom: "1px solid rgba(239,239,235,0.06)" }}
       >
         <Link
           href={`/artists/${prevArtist.slug}`}
           className="flex items-center gap-3 group"
         >
-          <span className="text-[11px] tracking-[0.1em] opacity-30 group-hover:opacity-100 transition-opacity" style={{ color: "#EFEFEB" }}>←</span>
+          <span className="text-[11px] opacity-30 group-hover:opacity-100 transition-opacity" style={{ color: "#EFEFEB" }}>←</span>
           <span className="text-[10px] tracking-[0.18em] uppercase font-light opacity-30 group-hover:opacity-100 transition-opacity" style={{ color: "#EFEFEB" }}>
             {prevArtist.name}
           </span>
@@ -52,7 +52,7 @@ export default async function ArtistPage({ params }: { params: Promise<{ slug: s
           <span className="text-[10px] tracking-[0.18em] uppercase font-light opacity-30 group-hover:opacity-100 transition-opacity" style={{ color: "#EFEFEB" }}>
             {nextArtist.name}
           </span>
-          <span className="text-[11px] tracking-[0.1em] opacity-30 group-hover:opacity-100 transition-opacity" style={{ color: "#EFEFEB" }}>→</span>
+          <span className="text-[11px] opacity-30 group-hover:opacity-100 transition-opacity" style={{ color: "#EFEFEB" }}>→</span>
         </Link>
       </div>
 
