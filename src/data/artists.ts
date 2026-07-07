@@ -215,7 +215,7 @@ export const artists: Artist[] = [
     bio: "A Nigerian born and Texas raised hip hop artist with the power to inspire. Her infectious personality and raps effortlessly leave a lasting impression on new listeners. Being a woman in a male-dominated field, she doesn't view it as a hindrance, but rather a way to empower more women to be bold and go after their goals. She is leveraging her career to usher a new sound into Christian music while pushing the boundaries for pioneering women of faith.",
     profileImage: "/images/artists/wande.jpg",
     heroImage: "/images/artists/wande.jpg",
-    imagePosition: "center 80%",
+    imagePosition: "center 50%",
     stats: [
       { value: "4.3B", label: "Apple Campaign Views" },
       { value: "3.05M", label: "YouTube Views" },
