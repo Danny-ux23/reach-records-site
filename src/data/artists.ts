@@ -19,6 +19,7 @@ export interface Socials {
   instagram?: string;
   youtube?: string;
   facebook?: string;
+  twitter?: string;
 }
 
 export interface Artist {
