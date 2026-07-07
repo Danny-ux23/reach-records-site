@@ -273,9 +273,9 @@ export const artists: Artist[] = [
       "'Dum Dum' featured on Fox TV Series So You Think You Can Dance",
     ],
     youtubeVideos: [
-      { id: "dQw4w9WgXcQ", title: "Dum Dum" },
-      { id: "dQw4w9WgXcQ", title: "Jumpin' Out The Whip" },
-      { id: "dQw4w9WgXcQ", title: "Never Fold" },
+      { id: "b8jSR88aV9s", title: "Get Out My Way — Gran Turismo (2023 Film)" },
+      { id: "urNrzzYWUuk", title: "Get Out My Way — Apple iPhone 14 Commercial (2023)" },
+      { id: "ZWwPlldEiUY", title: "Dum Dum feat. Lecrae — 16M+ Views" },
     ],
     photos: [],
     syncExamples: [
