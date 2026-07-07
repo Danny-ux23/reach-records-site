@@ -81,7 +81,7 @@ export const artists: Artist[] = [
     discoUrl: "https://www.discogs.com/artist/2228725-Lecrae",
     socials: {
       instagram: "https://www.instagram.com/lecrae",
-      youtube: "https://www.youtube.com/@lecrae",
+      youtube: "https://www.youtube.com/@LecraeOfficial",
       facebook: "https://www.facebook.com/lecrae",
     },
   },
@@ -162,7 +162,7 @@ export const artists: Artist[] = [
     discoUrl: "https://www.discogs.com/artist/7075635-1K-Phew",
     socials: {
       instagram: "https://www.instagram.com/1kphew",
-      youtube: "https://www.youtube.com/@1kphew",
+      youtube: "https://www.youtube.com/@Phewskii",
       facebook: "https://www.facebook.com/1kphew",
     },
   },
@@ -202,9 +202,9 @@ export const artists: Artist[] = [
     ],
     discoUrl: "https://www.discogs.com/artist/8619069-Hulvey",
     socials: {
-      instagram: "https://www.instagram.com/hulveymusic",
+      instagram: "https://www.instagram.com/hulvey/",
       youtube: "https://www.youtube.com/@hulvey",
-      facebook: "https://www.facebook.com/hulveymusic",
+      facebook: "https://www.facebook.com/hulveyofficial/",
     },
   },
   {
@@ -243,9 +243,9 @@ export const artists: Artist[] = [
     ],
     discoUrl: "https://www.discogs.com/artist/7075636-Wande",
     socials: {
-      instagram: "https://www.instagram.com/wandemusic",
-      youtube: "https://www.youtube.com/@wandemusic",
-      facebook: "https://www.facebook.com/wandemusic",
+      instagram: "https://www.instagram.com/anike/",
+      youtube: "https://www.youtube.com/channel/UCU9fuELgg3GaQcpYGfuA65g",
+      facebook: "https://www.facebook.com/ItsAnike/",
     },
   },
   {
@@ -284,8 +284,8 @@ export const artists: Artist[] = [
     discoUrl: "https://www.discogs.com/artist/2228726-Tedashii",
     socials: {
       instagram: "https://www.instagram.com/tedashii",
-      youtube: "https://www.youtube.com/@tedashii",
-      facebook: "https://www.facebook.com/tedashii",
+      youtube: "https://www.youtube.com/@tedashii_116",
+      facebook: "https://www.facebook.com/Tedashii",
     },
   },
   {
@@ -321,8 +321,8 @@ export const artists: Artist[] = [
     discoUrl: "https://www.discogs.com/artist/2369578-Trip-Lee",
     socials: {
       instagram: "https://www.instagram.com/triplee116",
-      youtube: "https://www.youtube.com/@triplee116",
-      facebook: "https://www.facebook.com/triplee116",
+      youtube: "https://www.youtube.com/@triplee_116",
+      facebook: "https://www.facebook.com/TripLee",
     },
   },
   {
@@ -357,8 +357,8 @@ export const artists: Artist[] = [
     discoUrl: "https://www.discogs.com/artist/7075637-Whatuprg",
     socials: {
       instagram: "https://www.instagram.com/whatuprg",
-      youtube: "https://www.youtube.com/@whatuprg",
-      facebook: "https://www.facebook.com/whatuprg",
+      youtube: "https://www.youtube.com/@whatuprg-music",
+      facebook: "https://www.facebook.com/whatuprg1",
     },
   },
   {
@@ -396,8 +396,9 @@ export const artists: Artist[] = [
     syncExamples: [],
     discoUrl: "https://www.discogs.com/artist/limoblaze",
     socials: {
-      instagram: "https://www.instagram.com/limoblaze",
+      instagram: "https://www.instagram.com/limoblaze_",
       youtube: "https://www.youtube.com/@limoblaze",
+      twitter: "https://www.twitter.com/Limoblaze",
     },
   },
   {
@@ -434,7 +435,7 @@ export const artists: Artist[] = [
     discoUrl: "https://www.discogs.com/artist/jackie-hill-perry",
     socials: {
       instagram: "https://www.instagram.com/jackiehillperry",
-      youtube: "https://www.youtube.com/@jackiehillperry",
+      youtube: "https://www.youtube.com/@jackiehillperrychannel",
     },
   },
   {
@@ -470,8 +471,9 @@ export const artists: Artist[] = [
     syncExamples: [],
     discoUrl: "https://2819church.org",
     socials: {
-      instagram: "https://www.instagram.com/2819church",
-      youtube: "https://www.youtube.com/@2819Church",
+      instagram: "https://www.instagram.com/2819church/",
+      youtube: "https://www.youtube.com/channel/UC8-huAmgHiV8NIqwaEAMz6w",
+      facebook: "https://www.facebook.com/2819church/",
     },
   },
 ];
