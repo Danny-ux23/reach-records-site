@@ -31,6 +31,31 @@ export default async function ArtistPage({ params }: { params: Promise<{ slug: s
     <div style={{ backgroundColor: "#EFEFEB", fontFamily: "var(--font-space-grotesk)", color: "#1a1a1a" }}>
       <Nav />
 
+      {/* ── ARTIST NAV ──────────────────────────────────────────── */}
+      <div
+        className="flex justify-between items-center px-12 md:px-20 py-4"
+        style={{ backgroundColor: "#1a1a1a", borderBottom: "1px solid rgba(239,239,235,0.06)" }}
+      >
+        <Link
+          href={`/artists/${prevArtist.slug}`}
+          className="flex items-center gap-3 group"
+        >
+          <span className="text-[11px] tracking-[0.1em] opacity-30 group-hover:opacity-100 transition-opacity" style={{ color: "#EFEFEB" }}>←</span>
+          <span className="text-[10px] tracking-[0.18em] uppercase font-light opacity-30 group-hover:opacity-100 transition-opacity" style={{ color: "#EFEFEB" }}>
+            {prevArtist.name}
+          </span>
+        </Link>
+        <Link
+          href={`/artists/${nextArtist.slug}`}
+          className="flex items-center gap-3 group"
+        >
+          <span className="text-[10px] tracking-[0.18em] uppercase font-light opacity-30 group-hover:opacity-100 transition-opacity" style={{ color: "#EFEFEB" }}>
+            {nextArtist.name}
+          </span>
+          <span className="text-[11px] tracking-[0.1em] opacity-30 group-hover:opacity-100 transition-opacity" style={{ color: "#EFEFEB" }}>→</span>
+        </Link>
+      </div>
+
       {/* ── HERO ─────────────────────────────────────────────────── */}
       <section
         className="relative min-h-screen flex flex-col justify-end overflow-hidden"
@@ -301,40 +326,6 @@ export default async function ArtistPage({ params }: { params: Promise<{ slug: s
         >
           ← Roster
         </Link>
-
-        <div className="flex items-center gap-10">
-          <Link
-            href={`/artists/${prevArtist.slug}`}
-            className="flex flex-col items-center gap-1 group"
-          >
-            <span
-              className="text-[9px] tracking-[0.2em] uppercase font-light opacity-30 group-hover:opacity-60 transition-opacity"
-            >
-              ← Prev
-            </span>
-            <span
-              className="text-[11px] tracking-[0.12em] uppercase font-medium opacity-40 group-hover:opacity-100 transition-opacity"
-            >
-              {prevArtist.name}
-            </span>
-          </Link>
-
-          <Link
-            href={`/artists/${nextArtist.slug}`}
-            className="flex flex-col items-center gap-1 group"
-          >
-            <span
-              className="text-[9px] tracking-[0.2em] uppercase font-light opacity-30 group-hover:opacity-60 transition-opacity"
-            >
-              Next →
-            </span>
-            <span
-              className="text-[11px] tracking-[0.12em] uppercase font-medium opacity-40 group-hover:opacity-100 transition-opacity"
-            >
-              {nextArtist.name}
-            </span>
-          </Link>
-        </div>
 
         <a
           href={artist.discoUrl}
