@@ -151,34 +151,82 @@ export default async function ArtistPage({ params }: { params: Promise<{ slug: s
         </div>
       </section>
 
-      {/* ── ACCOMPLISHMENTS ─────────────────────────────────────── */}
-      <section
-        className="px-12 md:px-20 py-20"
-        style={{ backgroundColor: "#1a1a1a", color: "#EFEFEB" }}
-      >
-        <p className="text-[10px] tracking-[0.3em] uppercase mb-14 opacity-40">
-          Highlights
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-0">
-          {artist.accomplishments.map((item, i) => (
+      {/* ── SYNC PLACEMENTS ─────────────────────────────────────── */}
+      {artist.syncExamples.length > 0 && (
+        <section
+          className="px-12 md:px-20 py-20"
+          style={{ backgroundColor: "#1a1a1a", color: "#EFEFEB" }}
+        >
+          <p className="text-[10px] tracking-[0.3em] uppercase mb-10 opacity-40">
+            Sync Placements
+          </p>
+          <div>
             <div
-              key={i}
-              className="flex items-start gap-6 py-6"
-              style={{ borderBottom: "1px solid rgba(239,239,235,0.08)" }}
+              className="hidden md:grid gap-8 pb-4 mb-2"
+              style={{
+                gridTemplateColumns: "80px 1fr 1fr 120px",
+                borderBottom: "1px solid rgba(239,239,235,0.12)",
+              }}
             >
-              <span
-                className="text-[10px] tracking-[0.1em] font-light flex-shrink-0 mt-[3px]"
-                style={{ color: artist.accentColor, minWidth: "28px" }}
-              >
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <p className="text-[13px] leading-[1.75] font-light opacity-80">
-                {item}
-              </p>
+              {["Year", "Song", "Show / Placement", "Network"].map((h) => (
+                <span key={h} className="text-[9px] tracking-[0.2em] uppercase opacity-30">
+                  {h}
+                </span>
+              ))}
             </div>
-          ))}
-        </div>
-      </section>
+            {artist.syncExamples.map((sync, i) => (
+              <div
+                key={i}
+                className="grid gap-4 md:gap-8 py-5 items-center"
+                style={{
+                  gridTemplateColumns: "1fr",
+                  borderBottom: "1px solid rgba(239,239,235,0.08)",
+                }}
+              >
+                <div className="flex flex-col gap-1 md:hidden">
+                  <span className="text-[10px] tracking-[0.12em] font-light opacity-40">
+                    {sync.year}
+                  </span>
+                  <span className="text-[13px] font-medium">
+                    &ldquo;{sync.songTitle}&rdquo;
+                  </span>
+                  <span className="text-[12px] font-light opacity-60">
+                    {sync.show}
+                  </span>
+                  {sync.network && (
+                    <span
+                      className="text-[10px] tracking-[0.12em] uppercase font-light"
+                      style={{ color: artist.accentColor }}
+                    >
+                      {sync.network}
+                    </span>
+                  )}
+                </div>
+                <div
+                  className="hidden md:grid gap-8 items-center"
+                  style={{ gridTemplateColumns: "80px 1fr 1fr 120px" }}
+                >
+                  <span className="text-[11px] tracking-[0.1em] font-light opacity-40">
+                    {sync.year}
+                  </span>
+                  <span className="text-[13px] font-medium">
+                    &ldquo;{sync.songTitle}&rdquo;
+                  </span>
+                  <span className="text-[13px] font-light opacity-60">
+                    {sync.show}
+                  </span>
+                  <span
+                    className="text-[10px] tracking-[0.14em] uppercase font-medium"
+                    style={{ color: artist.accentColor }}
+                  >
+                    {sync.network}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* ── YOUTUBE VIDEOS ──────────────────────────────────────── */}
       {artist.youtubeVideos.length > 0 && (
@@ -232,89 +280,6 @@ export default async function ArtistPage({ params }: { params: Promise<{ slug: s
                   fill
                   className="object-cover hover:scale-105 transition-transform duration-700"
                 />
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {/* ── SYNC PLACEMENTS ─────────────────────────────────────── */}
-      {artist.syncExamples.length > 0 && (
-        <section
-          className="px-12 md:px-20 py-20"
-          style={{ backgroundColor: "#EFEFEB" }}
-        >
-          <p className="text-[10px] tracking-[0.3em] uppercase mb-10 opacity-40">
-            Sync Placements
-          </p>
-          <div>
-            {/* Header row */}
-            <div
-              className="hidden md:grid gap-8 pb-4 mb-2"
-              style={{
-                gridTemplateColumns: "80px 1fr 1fr 120px",
-                borderBottom: "1px solid rgba(26,26,26,0.12)",
-              }}
-            >
-              {["Year", "Song", "Show / Placement", "Network"].map((h) => (
-                <span key={h} className="text-[9px] tracking-[0.2em] uppercase opacity-30">
-                  {h}
-                </span>
-              ))}
-            </div>
-
-            {/* Rows */}
-            {artist.syncExamples.map((sync, i) => (
-              <div
-                key={i}
-                className="grid gap-4 md:gap-8 py-5 items-center"
-                style={{
-                  gridTemplateColumns: "1fr",
-                  borderBottom: "1px solid rgba(26,26,26,0.08)",
-                }}
-              >
-                {/* Mobile stacked */}
-                <div className="flex flex-col gap-1 md:hidden">
-                  <span
-                    className="text-[10px] tracking-[0.12em] font-light opacity-40"
-                  >
-                    {sync.year}
-                  </span>
-                  <span className="text-[13px] font-medium">
-                    &ldquo;{sync.songTitle}&rdquo;
-                  </span>
-                  <span className="text-[12px] font-light opacity-60">
-                    {sync.show}
-                  </span>
-                  <span
-                    className="text-[10px] tracking-[0.12em] uppercase font-light opacity-40"
-                    style={{ color: artist.accentColor === "#EFEFEB" ? "#1a1a1a" : artist.accentColor }}
-                  >
-                    {sync.network}
-                  </span>
-                </div>
-
-                {/* Desktop row */}
-                <div
-                  className="hidden md:grid gap-8 items-center"
-                  style={{ gridTemplateColumns: "80px 1fr 1fr 120px" }}
-                >
-                  <span className="text-[11px] tracking-[0.1em] font-light opacity-40">
-                    {sync.year}
-                  </span>
-                  <span className="text-[13px] font-medium">
-                    &ldquo;{sync.songTitle}&rdquo;
-                  </span>
-                  <span className="text-[13px] font-light opacity-60">
-                    {sync.show}
-                  </span>
-                  <span
-                    className="text-[10px] tracking-[0.14em] uppercase font-medium"
-                    style={{ color: artist.accentColor }}
-                  >
-                    {sync.network}
-                  </span>
-                </div>
               </div>
             ))}
           </div>
