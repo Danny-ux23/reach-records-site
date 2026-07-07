@@ -296,7 +296,7 @@ export const artists: Artist[] = [
     bio: "Re-emerging from a 5-year recording hiatus, Trip Lee is back for good. The Dallas-bred rapper, pastor, husband, and father is back in the studio. On his new single Supernatural, Trip addresses societal hardships and calls out for a hope beyond what's seen. His aim: to center the conversation in Christian Hip Hop back on Jesus — and to give a new take on the eternal message of hope.",
     profileImage: "/images/artists/trip-lee.jpg",
     heroImage: "/images/artists/trip-lee.jpg",
-    imagePosition: "center 90%",
+    imagePosition: "center 30%",
     stats: [
       { value: "300K", label: "Spotify Listeners" },
       { value: "479K", label: "Facebook" },
