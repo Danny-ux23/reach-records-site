@@ -190,9 +190,9 @@ export const artists: Artist[] = [
       "'Cold Blooded' featured on ABC's hit show The Rookie in 2021",
     ],
     youtubeVideos: [
-      { id: "dQw4w9WgXcQ", title: "Reasons (ft. SVRCINA)" },
-      { id: "dQw4w9WgXcQ", title: "Higher" },
-      { id: "dQw4w9WgXcQ", title: "Cold Blooded" },
+      { id: "5lyb3mDBEW0", title: "Altar (Hulvey, Forrest Frank)" },
+      { id: "zweTWjGa3rM", title: "No Longer Bound (Forrest Frank feat. Hulvey)" },
+      { id: "FAsu1DhC15U", title: "Live Forever (116)" },
     ],
     photos: [],
     syncExamples: [
