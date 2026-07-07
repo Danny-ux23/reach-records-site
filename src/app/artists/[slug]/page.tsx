@@ -34,7 +34,7 @@ export default async function ArtistPage({ params }: { params: Promise<{ slug: s
       {/* ── ARTIST NAV ──────────────────────────────────────────── */}
       <div
         className="fixed left-0 right-0 z-40 flex justify-between items-center px-12 md:px-20 py-3"
-        style={{ top: "72px", backgroundColor: "rgba(26,26,26,0.92)", backdropFilter: "blur(8px)", borderBottom: "1px solid rgba(239,239,235,0.06)" }}
+        style={{ top: "72px" }}
       >
         <Link
           href={`/artists/${prevArtist.slug}`}
