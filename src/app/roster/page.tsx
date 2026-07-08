@@ -2,43 +2,38 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
 import Nav from "@/components/Nav";
 import { artists } from "@/data/artists";
 
-const activeArtists = artists.filter((a) => !a.legacy);
-const legacyArtists = artists.filter((a) => a.legacy);
+const rosterArtists = artists.filter((a) => !a.legacy);
 
 export default function RosterPage() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [visible, setVisible] = useState(true);
   const router = useRouter();
 
-  const goTo = useCallback(
-    (index: number) => {
-      setVisible(false);
-      setTimeout(() => {
-        setActiveIndex(index);
-        setVisible(true);
-      }, 250);
-    },
-    []
-  );
-
   const next = useCallback(() => {
-    goTo((activeIndex + 1) % activeArtists.length);
-  }, [activeIndex, goTo]);
+    setActiveIndex((i) => (i + 1) % rosterArtists.length);
+  }, []);
 
   const prev = useCallback(() => {
-    goTo((activeIndex - 1 + activeArtists.length) % activeArtists.length);
-  }, [activeIndex, goTo]);
+    setActiveIndex((i) => (i - 1 + rosterArtists.length) % rosterArtists.length);
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(next, 5000);
     return () => clearInterval(timer);
   }, [next]);
 
-  const active = activeArtists[activeIndex];
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowDown") next();
+      if (e.key === "ArrowUp") prev();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [next, prev]);
+
+  const active = rosterArtists[activeIndex];
 
   return (
     <div
@@ -47,183 +42,119 @@ export default function RosterPage() {
     >
       <Nav />
 
-      <div className="flex-1 flex flex-col lg:flex-row">
+      <div className="flex-1 flex flex-col justify-center px-12 md:px-20 pt-32 pb-16">
 
-        {/* Left — artist visual */}
-        <div
-          className="relative flex-1 flex items-center justify-center overflow-hidden cursor-pointer min-h-[60vh] lg:min-h-0"
-          onClick={() => router.push(`/artists/${active.slug}`)}
-          style={{ opacity: visible ? 1 : 0, transition: "opacity 0.25s ease" }}
+        {/* Header */}
+        <p
+          className="text-[9px] tracking-[0.35em] uppercase font-light mb-10"
+          style={{ color: "rgba(239,239,235,0.25)" }}
         >
-          {/* Photo if available */}
-          {active.profileImage && (
-            <Image
-              src={active.profileImage}
-              alt={active.name}
-              fill
-              sizes="100vw"
-              className="object-cover"
-              style={{ opacity: 0.6, objectPosition: active.imagePosition ?? "center" }}
-              quality={95}
-            />
-          )}
+          Roster &mdash; {String(rosterArtists.length).padStart(2, "0")} Artists
+        </p>
 
-          {/* Gradient overlay */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background: `linear-gradient(135deg, #1a1a1a 0%, ${active.accentColor}30 60%, #1a1a1a 100%)`,
-              zIndex: 1,
-            }}
-          />
+        {/* Artist list */}
+        <div>
+          {rosterArtists.map((artist, i) => {
+            const isActive = i === activeIndex;
+            return (
+              <div
+                key={artist.slug}
+                className="flex items-center gap-8 cursor-pointer group"
+                style={{ borderBottom: "1px solid rgba(239,239,235,0.04)" }}
+                onClick={() =>
+                  isActive
+                    ? router.push(`/artists/${artist.slug}`)
+                    : setActiveIndex(i)
+                }
+              >
+                {/* Number */}
+                <span
+                  className="text-[9px] tracking-[0.2em] font-light flex-shrink-0 w-6 py-4 transition-colors duration-300"
+                  style={{ color: isActive ? active.accentColor : "rgba(239,239,235,0.15)" }}
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </span>
 
-          {/* Big name in background */}
-          <div
-            className="absolute inset-0 flex items-center justify-center select-none pointer-events-none"
-            style={{ zIndex: 2 }}
-          >
-            <span
-              className="font-bold uppercase text-center leading-none"
-              style={{
-                fontSize: "clamp(3rem, 8vw, 7rem)",
-                color: active.accentColor,
-                opacity: 0.12,
-                letterSpacing: "-0.02em",
-              }}
-            >
-              {active.name}
-            </span>
-          </div>
+                {/* Name */}
+                <span
+                  className="font-bold uppercase leading-none transition-all duration-300"
+                  style={{
+                    fontSize: isActive
+                      ? "clamp(2rem, 4.5vw, 3.8rem)"
+                      : "clamp(1.4rem, 3vw, 2.5rem)",
+                    letterSpacing: "-0.02em",
+                    color: isActive ? "#EFEFEB" : "rgba(239,239,235,0.16)",
+                    paddingTop: isActive ? "0.6rem" : "0.4rem",
+                    paddingBottom: isActive ? "0.6rem" : "0.4rem",
+                  }}
+                >
+                  {artist.name}
+                </span>
 
-          {/* Click label */}
-          <div
-            className="absolute bottom-8 right-8 flex items-center gap-2 opacity-0 hover:opacity-100 transition-opacity"
-            style={{ zIndex: 3 }}
-          >
-            <span className="text-[10px] tracking-[0.2em] uppercase text-white opacity-60">
-              View Artist
-            </span>
-            <span className="text-white opacity-60">→</span>
-          </div>
+                {/* Active: genre + view link */}
+                {isActive && (
+                  <div className="flex items-center gap-8 ml-2">
+                    <span
+                      className="text-[9px] tracking-[0.22em] uppercase font-light hidden sm:block"
+                      style={{ color: active.accentColor }}
+                    >
+                      {artist.genre}
+                    </span>
+                    <span
+                      className="text-[9px] tracking-[0.18em] uppercase font-light hidden md:block"
+                      style={{ color: "rgba(239,239,235,0.3)" }}
+                    >
+                      View Profile →
+                    </span>
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
 
-        {/* Right — artist info + controls */}
-        <div
-          className="flex flex-col justify-between px-10 py-12 lg:py-24 lg:w-96"
-          style={{ borderLeft: "1px solid rgba(239,239,235,0.08)" }}
-        >
-          {/* Artist detail */}
-          <div
-            className="flex-1 flex flex-col justify-center"
-            style={{ opacity: visible ? 1 : 0, transition: "opacity 0.25s ease" }}
+        {/* Bottom controls */}
+        <div className="flex items-center gap-8 mt-12">
+          <button
+            onClick={prev}
+            className="text-[20px] transition-opacity hover:opacity-100"
+            style={{ color: "rgba(239,239,235,0.3)" }}
+            aria-label="Previous"
           >
-            <p
-              className="text-[10px] tracking-[0.3em] uppercase font-light mb-4"
-              style={{ color: active.accentColor }}
-            >
-              {active.genre}
-            </p>
-            <h2
-              className="font-bold uppercase leading-none mb-6"
-              style={{
-                fontSize: "clamp(2rem, 5vw, 3rem)",
-                letterSpacing: "-0.02em",
-                color: "#EFEFEB",
-              }}
-            >
-              {active.name}
-            </h2>
-            <p
-              className="text-[12px] leading-[1.85] font-light mb-8 line-clamp-4"
-              style={{ color: "rgba(239,239,235,0.5)" }}
-            >
-              {active.bio}
-            </p>
-
-            {/* Top stats */}
-            <div className="grid grid-cols-2 gap-6 mb-10">
-              {active.stats.slice(0, 2).map((stat) => (
-                <div key={stat.label}>
-                  <p
-                    className="text-xl font-bold leading-none mb-1"
-                    style={{ color: "#EFEFEB" }}
-                  >
-                    {stat.value}
-                  </p>
-                  <p
-                    className="text-[9px] tracking-[0.2em] uppercase font-light"
-                    style={{ color: "rgba(239,239,235,0.35)" }}
-                  >
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            <button
-              onClick={() => router.push(`/artists/${active.slug}`)}
-              className="flex items-center gap-3 w-fit text-[11px] tracking-[0.18em] uppercase font-medium transition-opacity hover:opacity-60"
-              style={{ color: active.accentColor }}
-            >
-              View Full Profile
-              <span>→</span>
-            </button>
-          </div>
-
-          {/* Controls */}
-          <div className="flex items-center justify-between pt-10" style={{ borderTop: "1px solid rgba(239,239,235,0.08)" }}>
-            {/* Prev / Next */}
-            <div className="flex items-center gap-6">
+            ↑
+          </button>
+          <button
+            onClick={next}
+            className="text-[20px] transition-opacity hover:opacity-100"
+            style={{ color: "rgba(239,239,235,0.3)" }}
+            aria-label="Next"
+          >
+            ↓
+          </button>
+          <div className="flex items-center gap-2 ml-4">
+            {rosterArtists.map((_, i) => (
               <button
-                onClick={prev}
-                className="text-[22px] transition-opacity hover:opacity-100"
-                style={{ color: "rgba(239,239,235,0.5)" }}
-                aria-label="Previous"
-              >
-                ←
-              </button>
-              <button
-                onClick={next}
-                className="text-[22px] transition-opacity hover:opacity-100"
-                style={{ color: "rgba(239,239,235,0.5)" }}
-                aria-label="Next"
-              >
-                →
-              </button>
-            </div>
-
-            {/* Dots */}
-            <div className="flex items-center gap-2">
-              {activeArtists.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => goTo(i)}
-                  aria-label={`Artist ${i + 1}`}
-                  style={{
-                    width: i === activeIndex ? "18px" : "5px",
-                    height: "2px",
-                    backgroundColor: i === activeIndex ? active.accentColor : "rgba(239,239,235,0.25)",
-                    transition: "all 0.3s ease",
-                    border: "none",
-                    padding: 0,
-                    cursor: "pointer",
-                  }}
-                />
-              ))}
-            </div>
-
-            {/* Counter */}
-            <span
-              className="text-[10px] tracking-[0.1em] font-light"
-              style={{ color: "rgba(239,239,235,0.25)" }}
-            >
-              {String(activeIndex + 1).padStart(2, "0")}/{String(activeArtists.length).padStart(2, "0")}
-            </span>
+                key={i}
+                onClick={() => setActiveIndex(i)}
+                aria-label={`Artist ${i + 1}`}
+                style={{
+                  width: i === activeIndex ? "18px" : "4px",
+                  height: "2px",
+                  backgroundColor:
+                    i === activeIndex
+                      ? active.accentColor
+                      : "rgba(239,239,235,0.2)",
+                  transition: "all 0.3s ease",
+                  border: "none",
+                  padding: 0,
+                  cursor: "pointer",
+                }}
+              />
+            ))}
           </div>
         </div>
 
       </div>
-
     </div>
   );
 }

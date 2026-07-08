@@ -180,6 +180,34 @@ export default async function ArtistPage({ params }: { params: Promise<{ slug: s
         </div>
       </section>
 
+      {/* ── HIGHLIGHTS ──────────────────────────────────────────── */}
+      {artist.accomplishments.length > 0 && (
+        <section className="px-12 md:px-20 py-20">
+          <p className="text-[10px] tracking-[0.3em] uppercase mb-14 opacity-40">
+            Highlights
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-0">
+            {artist.accomplishments.map((item, i) => (
+              <div
+                key={i}
+                className="flex items-start gap-6 py-6"
+                style={{ borderBottom: "1px solid rgba(26,26,26,0.08)" }}
+              >
+                <span
+                  className="text-[10px] tracking-[0.1em] font-light flex-shrink-0 mt-[3px]"
+                  style={{ color: artist.accentColor, minWidth: "28px" }}
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <p className="text-[13px] leading-[1.75] font-light opacity-70">
+                  {item}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* ── SYNC PLACEMENTS ─────────────────────────────────────── */}
       {artist.syncExamples.length > 0 && (
         <section
