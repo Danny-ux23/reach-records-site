@@ -51,7 +51,7 @@ export default function RosterPage() {
             key={artist.slug}
             className="absolute inset-0"
             style={{
-              opacity: hoveredIndex === i ? 1 : 0,
+              opacity: hoveredIndex === i || (hoveredIndex === null && activeIndex === i) ? 1 : 0,
               transition: "opacity 0.5s ease",
             }}
           >
@@ -63,7 +63,7 @@ export default function RosterPage() {
               className="object-cover"
               style={{
                 objectPosition: artist.imagePosition ?? "center",
-                transform: hoveredIndex === i ? "scale(1)" : "scale(1.04)",
+                transform: hoveredIndex === i || (hoveredIndex === null && activeIndex === i) ? "scale(1)" : "scale(1.04)",
                 transition: "transform 0.6s ease, opacity 0.5s ease",
               }}
               priority={i < 3}
