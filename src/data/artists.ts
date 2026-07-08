@@ -20,6 +20,8 @@ export interface Socials {
   youtube?: string;
   facebook?: string;
   twitter?: string;
+  spotify?: string;
+  apple?: string;
 }
 
 export interface Artist {
@@ -91,6 +93,8 @@ export const artists: Artist[] = [
       instagram: "https://www.instagram.com/lecrae",
       youtube: "https://www.youtube.com/@LecraeOfficial",
       facebook: "https://www.facebook.com/lecrae",
+      spotify: "https://open.spotify.com/artist/1CFCsEqKrCyvAFKOATQHiW",
+      apple: "https://music.apple.com/us/artist/lecrae/130043072",
     },
   },
   {
@@ -142,6 +146,8 @@ export const artists: Artist[] = [
       instagram: "https://www.instagram.com/andymineo",
       youtube: "https://www.youtube.com/@andymineo",
       facebook: "https://www.facebook.com/andymineo",
+      spotify: "https://open.spotify.com/artist/1TMrnxBwZfmfRxsGzkNIHw",
+      apple: "https://music.apple.com/us/artist/andy-mineo/257538441",
     },
   },
   {
@@ -190,6 +196,8 @@ export const artists: Artist[] = [
       instagram: "https://www.instagram.com/1kphew",
       youtube: "https://www.youtube.com/@Phewskii",
       facebook: "https://www.facebook.com/1kphew",
+      spotify: "https://open.spotify.com/artist/6CQGrt3AJ2gx5oMSR0mwbl",
+      apple: "https://music.apple.com/us/artist/1k-phew/1168127389",
     },
   },
   {
@@ -238,6 +246,8 @@ export const artists: Artist[] = [
       instagram: "https://www.instagram.com/hulvey/",
       youtube: "https://www.youtube.com/@hulvey",
       facebook: "https://www.facebook.com/hulveyofficial/",
+      spotify: "https://open.spotify.com/artist/3zSrc5vUlUxyDdS0KrxFJO",
+      apple: "https://music.apple.com/us/artist/hulvey/1438377315",
     },
   },
   {
@@ -285,6 +295,8 @@ export const artists: Artist[] = [
       instagram: "https://www.instagram.com/anike/",
       youtube: "https://www.youtube.com/channel/UCU9fuELgg3GaQcpYGfuA65g",
       facebook: "https://www.facebook.com/ItsAnike/",
+      spotify: "https://open.spotify.com/artist/1OwODVINjjQIxMmMpiJsLL",
+      apple: "https://music.apple.com/us/artist/anike/1656802650",
     },
   },
   {
@@ -334,6 +346,8 @@ export const artists: Artist[] = [
       instagram: "https://www.instagram.com/tedashii",
       youtube: "https://www.youtube.com/@tedashii_116",
       facebook: "https://www.facebook.com/Tedashii",
+      spotify: "https://open.spotify.com/artist/4c6lhwoOrmgNWvl0GxHlW1",
+      apple: "https://music.apple.com/us/artist/tedashii/162790874",
     },
   },
   {
@@ -382,6 +396,8 @@ export const artists: Artist[] = [
       instagram: "https://www.instagram.com/triplee116",
       youtube: "https://www.youtube.com/@triplee_116",
       facebook: "https://www.facebook.com/TripLee",
+      spotify: "https://open.spotify.com/artist/12H1Dmi64fAmmARrsyVFzy",
+      apple: "https://music.apple.com/us/artist/trip-lee/130043076",
     },
   },
   {
@@ -428,6 +444,8 @@ export const artists: Artist[] = [
       instagram: "https://www.instagram.com/whatuprg",
       youtube: "https://www.youtube.com/@whatuprg-music",
       facebook: "https://www.facebook.com/whatuprg1",
+      spotify: "https://open.spotify.com/artist/6YgYm3f9ifsz4OwQt8jql7",
+      apple: "https://music.apple.com/us/artist/whatuprg/1192372189",
     },
   },
   {
@@ -471,6 +489,8 @@ export const artists: Artist[] = [
       instagram: "https://www.instagram.com/limoblaze_",
       youtube: "https://www.youtube.com/@limoblaze",
       twitter: "https://www.twitter.com/Limoblaze",
+      spotify: "https://open.spotify.com/artist/0liXA3xwx6pncxYQA30ahT",
+      apple: "https://music.apple.com/us/artist/limoblaze/1761216195",
     },
   },
   {
@@ -508,6 +528,8 @@ export const artists: Artist[] = [
     socials: {
       instagram: "https://www.instagram.com/jackiehillperry",
       youtube: "https://www.youtube.com/@jackiehillperrychannel",
+      spotify: "https://open.spotify.com/artist/0Lf9qKpKwy6fJtfM7UWLV0",
+      apple: "https://music.apple.com/us/artist/jackie-hill-perry/895014562",
     },
   },
   {
@@ -546,6 +568,8 @@ export const artists: Artist[] = [
       instagram: "https://www.instagram.com/2819church/",
       youtube: "https://www.youtube.com/channel/UC8-huAmgHiV8NIqwaEAMz6w",
       facebook: "https://www.facebook.com/2819church/",
+      spotify: "https://open.spotify.com/artist/6d6h6Yy5YXwnyM1AZpomir",
+      apple: "https://music.apple.com/us/artist/2819-worship/1736602113",
     },
   },
 ];

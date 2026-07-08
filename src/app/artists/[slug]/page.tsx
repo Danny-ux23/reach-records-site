@@ -168,6 +168,16 @@ export default async function ArtistPage({ params }: { params: Promise<{ slug: s
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.73-8.835L1.254 2.25H8.08l4.259 5.629 5.905-5.629zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
               </a>
             )}
+            {artist.socials.spotify && (
+              <a href={artist.socials.spotify} target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-40" style={{ color: "#1a1a1a" }} aria-label="Spotify">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+              </a>
+            )}
+            {artist.socials.apple && (
+              <a href={artist.socials.apple} target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-40" style={{ color: "#1a1a1a" }} aria-label="Apple Music">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.994 6.124a9.23 9.23 0 00-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043a5.022 5.022 0 00-1.877-.726 10.496 10.496 0 00-1.564-.15c-.05-.003-.096-.01-.144-.013H5.999c-.05.003-.095.01-.144.013a10.49 10.49 0 00-1.564.15 5.022 5.022 0 00-1.877.726C1.31 1.624.565 2.624.248 3.934a9.23 9.23 0 00-.24 2.19C.004 6.2 0 6.274 0 6.35v11.3c0 .075.004.149.008.225.045.73.24 1.485.548 2.147.576 1.226 1.535 2.044 2.838 2.407.468.13.955.196 1.455.215.507.021 1.014.021 1.522.021h11.26c.508 0 1.015 0 1.522-.021.5-.02.987-.086 1.455-.215 1.303-.363 2.262-1.18 2.838-2.407.308-.662.503-1.418.548-2.147.004-.076.008-.15.008-.225V6.35c0-.076-.004-.15-.008-.226zM12 17.465a5.465 5.465 0 110-10.93 5.465 5.465 0 010 10.93zm0-9.13a3.665 3.665 0 100 7.33 3.665 3.665 0 000-7.33zm5.77-1.594a1.27 1.27 0 110-2.54 1.27 1.27 0 010 2.54z"/></svg>
+              </a>
+            )}
           </div>
           <a
             href={artist.discoUrl}
@@ -220,7 +230,7 @@ export default async function ArtistPage({ params }: { params: Promise<{ slug: s
           style={{ backgroundColor: "#1a1a1a", color: "#EFEFEB" }}
         >
           <p className="text-[10px] tracking-[0.3em] uppercase mb-10 opacity-40">
-            Sync Placements
+            Top Sync Placements
           </p>
           <div>
             <div

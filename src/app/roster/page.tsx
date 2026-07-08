@@ -35,171 +35,114 @@ export default function RosterPage() {
     return () => window.removeEventListener("keydown", onKey);
   }, [next, prev]);
 
-  const active = rosterArtists[activeIndex];
-
   return (
     <div
-      className="min-h-screen flex flex-col overflow-hidden relative"
+      className="min-h-screen overflow-hidden relative"
       style={{ backgroundColor: "#1a1a1a", fontFamily: "var(--font-space-grotesk)" }}
     >
       <Nav />
 
-      {/* ── PHOTO PANEL (right side, revealed on hover) ─────────── */}
-      <div className="fixed right-0 top-0 bottom-0 hidden sm:block w-[44vw] pointer-events-none" style={{ zIndex: 1, transform: "translateZ(0)" }}>
-        {rosterArtists.map((artist, i) => (
+      {/* ── FULL-SCREEN PHOTOS ───────────────────────────────────── */}
+      {rosterArtists.map((artist, i) => {
+        const isShown = hoveredIndex === i || (hoveredIndex === null && activeIndex === i);
+        return (
           <div
             key={artist.slug}
-            className="absolute inset-0"
+            className="fixed inset-0 pointer-events-none"
             style={{
-              opacity: hoveredIndex === i || (hoveredIndex === null && activeIndex === i) ? 1 : 0,
-              transition: "opacity 0.4s ease",
+              opacity: isShown ? 1 : 0,
+              transition: "opacity 0.6s ease",
               willChange: "opacity",
               backfaceVisibility: "hidden",
+              zIndex: 0,
             }}
           >
             <Image
               src={artist.profileImage}
               alt={artist.name}
               fill
-              sizes="44vw"
+              sizes="100vw"
               className="object-cover"
               style={{
-                objectPosition: artist.imagePosition ?? "center",
-                transform: hoveredIndex === i || (hoveredIndex === null && activeIndex === i) ? "scale(1)" : "scale(1.04)",
-                transition: "transform 0.6s ease, opacity 0.5s ease",
+                objectPosition: artist.imagePosition ?? "center center",
+                transform: isShown ? "scale(1)" : "scale(1.04)",
+                transition: "transform 0.8s ease",
               }}
               priority={i < 3}
             />
-            {/* Blend into background on left edge */}
+            {/* Left-side overlay so names stay readable */}
             <div
               className="absolute inset-0"
               style={{
-                background: "linear-gradient(to right, #1a1a1a 0%, #1a1a1a 15%, rgba(26,26,26,0.6) 40%, transparent 65%)",
+                background:
+                  "linear-gradient(to right, rgba(26,26,26,0.96) 0%, rgba(26,26,26,0.80) 28%, rgba(26,26,26,0.35) 55%, transparent 78%)",
               }}
             />
-            {/* Subtle top/bottom vignette */}
+            {/* Top vignette for Nav readability */}
             <div
               className="absolute inset-0"
               style={{
-                background: "linear-gradient(to bottom, rgba(26,26,26,0.5) 0%, transparent 25%, transparent 75%, rgba(26,26,26,0.5) 100%)",
+                background:
+                  "linear-gradient(to bottom, rgba(26,26,26,0.55) 0%, transparent 18%)",
               }}
             />
-            {/* Accent color wash */}
+            {/* Bottom vignette */}
             <div
               className="absolute inset-0"
               style={{
-                background: `linear-gradient(135deg, transparent 50%, ${artist.accentColor}18 100%)`,
+                background:
+                  "linear-gradient(to top, rgba(26,26,26,0.4) 0%, transparent 20%)",
+              }}
+            />
+            {/* Accent wash */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background: `linear-gradient(135deg, transparent 55%, ${artist.accentColor}14 100%)`,
               }}
             />
           </div>
-        ))}
-      </div>
+        );
+      })}
 
-      {/* ── LIST ────────────────────────────────────────────────── */}
+      {/* ── ARTIST LIST (left overlay) ───────────────────────────── */}
       <div
-        className="flex-1 flex flex-col justify-center px-12 md:px-20 pt-32 pb-16 relative"
-        style={{ zIndex: 10 }}
+        className="fixed left-0 top-0 bottom-0 flex flex-col justify-center px-12 md:px-20"
+        style={{ zIndex: 10, paddingTop: "88px" }}
       >
-        {/* Artist list */}
-        <div>
-          {rosterArtists.map((artist, i) => {
-            const isActive = i === activeIndex;
-            const isHovered = i === hoveredIndex;
+        {rosterArtists.map((artist, i) => {
+          const isActive = i === activeIndex;
+          const isHovered = i === hoveredIndex;
 
-            return (
-              <div
-                key={artist.slug}
-                className="flex items-center gap-8 cursor-pointer outline-none"
-                onMouseEnter={() => setHoveredIndex(i)}
-                onMouseLeave={() => setHoveredIndex(null)}
-                onClick={() =>
-                  isActive
-                    ? router.push(`/artists/${artist.slug}`)
-                    : setActiveIndex(i)
-                }
-              >
-                {/* Name */}
-                <span
-                  className="font-bold uppercase leading-none"
-                  style={{
-                    fontSize: "clamp(1.8rem, 3.8vw, 3.2rem)",
-                    letterSpacing: "-0.02em",
-                    color: isHovered || isActive
-                      ? "#EFEFEB"
-                      : "rgba(239,239,235,0.16)",
-                    paddingTop: "0.5rem",
-                    paddingBottom: "0.5rem",
-                    transition: "color 0.3s ease",
-                  }}
-                >
-                  {artist.name}
-                </span>
-
-                {/* Active: genre + hint */}
-                {isActive && (
-                  <div className="flex items-center gap-8 ml-2">
-                    <span
-                      className="text-[9px] tracking-[0.22em] uppercase font-light hidden sm:block"
-                      style={{ color: active.accentColor }}
-                    >
-                      {artist.genre}
-                    </span>
-                    <span
-                      className="text-[9px] tracking-[0.18em] uppercase font-light hidden md:block"
-                      style={{ color: "rgba(239,239,235,0.3)" }}
-                    >
-                      {isHovered ? "Click to view →" : "View Profile →"}
-                    </span>
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Controls */}
-        <div className="flex items-center gap-8 mt-12">
-          <button
-            type="button"
-            onClick={prev}
-            className="text-[20px] transition-opacity hover:opacity-100"
-            style={{ color: "rgba(239,239,235,0.3)" }}
-            aria-label="Previous"
-          >
-            ↑
-          </button>
-          <button
-            type="button"
-            onClick={next}
-            className="text-[20px] transition-opacity hover:opacity-100"
-            style={{ color: "rgba(239,239,235,0.3)" }}
-            aria-label="Next"
-          >
-            ↓
-          </button>
-          <div className="flex items-center gap-2 ml-4">
-            {rosterArtists.map((_, i) => (
-              <button
-                key={i}
-                type="button"
-                onClick={() => setActiveIndex(i)}
-                aria-label={`Artist ${i + 1}`}
+          return (
+            <div
+              key={artist.slug}
+              className="cursor-pointer outline-none"
+              onMouseEnter={() => setHoveredIndex(i)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              onClick={() =>
+                isActive
+                  ? router.push(`/artists/${artist.slug}`)
+                  : setActiveIndex(i)
+              }
+            >
+              <span
+                className="font-bold uppercase leading-none block"
                 style={{
-                  width: i === activeIndex ? "18px" : "4px",
-                  height: "2px",
-                  backgroundColor:
-                    i === activeIndex
-                      ? active.accentColor
-                      : "rgba(239,239,235,0.2)",
-                  transition: "all 0.3s ease",
-                  border: "none",
-                  padding: 0,
-                  cursor: "pointer",
+                  fontSize: "clamp(1.8rem, 3.8vw, 3.2rem)",
+                  letterSpacing: "-0.02em",
+                  color:
+                    isHovered || isActive ? "#EFEFEB" : "rgba(239,239,235,0.15)",
+                  paddingTop: "0.5rem",
+                  paddingBottom: "0.5rem",
+                  transition: "color 0.3s ease",
                 }}
-              />
-            ))}
-          </div>
-        </div>
+              >
+                {artist.name}
+              </span>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
