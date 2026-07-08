@@ -358,7 +358,7 @@ export const artists: Artist[] = [
     bio: "Re-emerging from a 5-year recording hiatus, Trip Lee is back for good. The Dallas-bred rapper, pastor, husband, and father is back in the studio. On his new single Supernatural, Trip addresses societal hardships and calls out for a hope beyond what's seen. His aim: to center the conversation in Christian Hip Hop back on Jesus — and to give a new take on the eternal message of hope.",
     profileImage: "/images/artists/trip-lee.jpg",
     heroImage: "/images/artists/trip-lee.jpg",
-    imagePosition: "center 30%",
+    imagePosition: "center 15%",
     stats: [
       { value: "300K", label: "Spotify Listeners" },
       { value: "479K", label: "Facebook" },
@@ -408,6 +408,7 @@ export const artists: Artist[] = [
     bio: "Born and raised in north central Georgia, the multi-hyphenate artist WHATUPRG is the son of Mexican immigrant parents. At age 7 he was introduced to Reggaeton and enamored with artists like Funky & Manny Montes. In a time when Latino-Americans are being scrutinized, WHATUPRG shares his story to challenge perceptions and motivate change through music. He's a rapper, writer, producer, and creative — all at once.",
     profileImage: "/images/artists/whatuprg.jpg",
     heroImage: "/images/artists/whatuprg.jpg",
+    imagePosition: "center 15%",
     stats: [
       { value: "171.2K", label: "Monthly Listeners" },
       { value: "809K", label: "YouTube Views" },
