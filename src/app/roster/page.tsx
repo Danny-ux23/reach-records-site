@@ -120,18 +120,14 @@ export default function RosterPage() {
                 <span
                   className="font-bold uppercase leading-none"
                   style={{
-                    fontSize: isActive
-                      ? "clamp(2rem, 4.5vw, 3.8rem)"
-                      : "clamp(1.4rem, 3vw, 2.5rem)",
+                    fontSize: "clamp(1.8rem, 3.8vw, 3.2rem)",
                     letterSpacing: "-0.02em",
-                    color: isHovered
-                      ? "#EFEFEB"
-                      : isActive
+                    color: isHovered || isActive
                       ? "#EFEFEB"
                       : "rgba(239,239,235,0.16)",
                     paddingTop: "0.5rem",
                     paddingBottom: "0.5rem",
-                    transition: "color 0.25s ease, font-size 0.3s ease",
+                    transition: "color 0.3s ease",
                   }}
                 >
                   {artist.name}
