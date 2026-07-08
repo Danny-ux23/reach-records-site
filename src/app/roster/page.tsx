@@ -45,14 +45,16 @@ export default function RosterPage() {
       <Nav />
 
       {/* ── PHOTO PANEL (right side, revealed on hover) ─────────── */}
-      <div className="fixed right-0 top-0 bottom-0 w-[44vw] pointer-events-none" style={{ zIndex: 1 }}>
+      <div className="fixed right-0 top-0 bottom-0 w-[44vw] pointer-events-none" style={{ zIndex: 1, transform: "translateZ(0)" }}>
         {rosterArtists.map((artist, i) => (
           <div
             key={artist.slug}
             className="absolute inset-0"
             style={{
               opacity: hoveredIndex === i || (hoveredIndex === null && activeIndex === i) ? 1 : 0,
-              transition: "opacity 0.5s ease",
+              transition: "opacity 0.4s ease",
+              willChange: "opacity",
+              backfaceVisibility: "hidden",
             }}
           >
             <Image
@@ -72,7 +74,7 @@ export default function RosterPage() {
             <div
               className="absolute inset-0"
               style={{
-                background: "linear-gradient(to right, #1a1a1a 0%, rgba(26,26,26,0.3) 35%, transparent 60%)",
+                background: "linear-gradient(to right, #1a1a1a 0%, #1a1a1a 15%, rgba(26,26,26,0.6) 40%, transparent 65%)",
               }}
             />
             {/* Subtle top/bottom vignette */}
