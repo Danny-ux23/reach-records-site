@@ -45,7 +45,7 @@ export default function RosterPage() {
       <Nav />
 
       {/* ── PHOTO PANEL (right side, revealed on hover) ─────────── */}
-      <div className="fixed right-0 top-0 bottom-0 w-[44vw] pointer-events-none" style={{ zIndex: 1, transform: "translateZ(0)" }}>
+      <div className="fixed right-0 top-0 bottom-0 hidden sm:block w-[44vw] pointer-events-none" style={{ zIndex: 1, transform: "translateZ(0)" }}>
         {rosterArtists.map((artist, i) => (
           <div
             key={artist.slug}
@@ -160,6 +160,7 @@ export default function RosterPage() {
         {/* Controls */}
         <div className="flex items-center gap-8 mt-12">
           <button
+            type="button"
             onClick={prev}
             className="text-[20px] transition-opacity hover:opacity-100"
             style={{ color: "rgba(239,239,235,0.3)" }}
@@ -168,6 +169,7 @@ export default function RosterPage() {
             ↑
           </button>
           <button
+            type="button"
             onClick={next}
             className="text-[20px] transition-opacity hover:opacity-100"
             style={{ color: "rgba(239,239,235,0.3)" }}
@@ -179,6 +181,7 @@ export default function RosterPage() {
             {rosterArtists.map((_, i) => (
               <button
                 key={i}
+                type="button"
                 onClick={() => setActiveIndex(i)}
                 aria-label={`Artist ${i + 1}`}
                 style={{

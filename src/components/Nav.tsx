@@ -34,6 +34,17 @@ export default function Nav() {
           </li>
           <li>
             <TransitionLink
+              href="/legacy"
+              className={`text-[11px] font-medium tracking-[0.16em] uppercase transition-opacity hover:opacity-50 ${
+                pathname === "/legacy" ? "opacity-100" : "opacity-60"
+              }`}
+              style={{ color: "#EFEFEB" }}
+            >
+              Legacy
+            </TransitionLink>
+          </li>
+          <li>
+            <TransitionLink
               href="/contact"
               className={`text-[11px] font-medium tracking-[0.16em] uppercase transition-opacity hover:opacity-50 ${
                 pathname === "/contact" ? "opacity-100" : "opacity-60"

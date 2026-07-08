@@ -10,7 +10,7 @@ export default function ContactPage() {
 
       <div className="flex-1 flex flex-col justify-end px-12 md:px-20 pb-20 md:pb-28">
 
-        <div className="flex items-start justify-between mb-14">
+        <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between mb-14">
           <div>
             <p className="text-[10px] tracking-[0.2em] uppercase opacity-40 mb-6">
               Contact

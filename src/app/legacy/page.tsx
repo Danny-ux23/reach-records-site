@@ -46,10 +46,11 @@ export default function LegacyPage() {
         </div>
 
         {/* Artist grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px" style={{ borderTop: "1px solid rgba(239,239,235,0.06)" }}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" style={{ borderTop: "1px solid rgba(239,239,235,0.06)" }}>
           {legacyArtists.map((artist) => (
             <button
               key={artist.slug}
+              type="button"
               onClick={() => router.push(`/artists/${artist.slug}`)}
               className="group relative flex flex-col text-left overflow-hidden"
               style={{ borderBottom: "1px solid rgba(239,239,235,0.06)" }}
