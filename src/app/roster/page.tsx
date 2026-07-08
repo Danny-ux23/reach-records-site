@@ -107,7 +107,7 @@ export default function RosterPage() {
             return (
               <div
                 key={artist.slug}
-                className="flex items-center gap-8 cursor-pointer"
+                className="flex items-center gap-8 cursor-pointer outline-none"
                 onMouseEnter={() => setHoveredIndex(i)}
                 onMouseLeave={() => setHoveredIndex(null)}
                 onClick={() =>
@@ -129,8 +129,8 @@ export default function RosterPage() {
                       : isActive
                       ? "#EFEFEB"
                       : "rgba(239,239,235,0.16)",
-                    paddingTop: isActive ? "0.6rem" : "0.4rem",
-                    paddingBottom: isActive ? "0.6rem" : "0.4rem",
+                    paddingTop: "0.5rem",
+                    paddingBottom: "0.5rem",
                     transition: "color 0.25s ease, font-size 0.3s ease",
                   }}
                 >
