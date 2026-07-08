@@ -98,14 +98,6 @@ export default function RosterPage() {
         className="flex-1 flex flex-col justify-center px-12 md:px-20 pt-32 pb-16 relative"
         style={{ zIndex: 10 }}
       >
-        {/* Header */}
-        <p
-          className="text-[9px] tracking-[0.35em] uppercase font-light mb-10"
-          style={{ color: "rgba(239,239,235,0.25)" }}
-        >
-          Roster &mdash; {String(rosterArtists.length).padStart(2, "0")} Artists
-        </p>
-
         {/* Artist list */}
         <div>
           {rosterArtists.map((artist, i) => {
@@ -116,7 +108,6 @@ export default function RosterPage() {
               <div
                 key={artist.slug}
                 className="flex items-center gap-8 cursor-pointer"
-                style={{ borderBottom: "1px solid rgba(239,239,235,0.04)" }}
                 onMouseEnter={() => setHoveredIndex(i)}
                 onMouseLeave={() => setHoveredIndex(null)}
                 onClick={() =>
@@ -125,21 +116,6 @@ export default function RosterPage() {
                     : setActiveIndex(i)
                 }
               >
-                {/* Number */}
-                <span
-                  className="text-[9px] tracking-[0.2em] font-light flex-shrink-0 w-6 py-4"
-                  style={{
-                    color: isActive
-                      ? active.accentColor
-                      : isHovered
-                      ? "rgba(239,239,235,0.4)"
-                      : "rgba(239,239,235,0.15)",
-                    transition: "color 0.25s ease",
-                  }}
-                >
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-
                 {/* Name */}
                 <span
                   className="font-bold uppercase leading-none"
