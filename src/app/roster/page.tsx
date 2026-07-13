@@ -120,11 +120,7 @@ export default function RosterPage() {
               className="cursor-pointer outline-none"
               onMouseEnter={() => setHoveredIndex(i)}
               onMouseLeave={() => setHoveredIndex(null)}
-              onClick={() =>
-                isActive
-                  ? router.push(`/artists/${artist.slug}`)
-                  : setActiveIndex(i)
-              }
+              onClick={() => router.push(`/artists/${artist.slug}`)}
             >
               <span
                 className="font-bold uppercase leading-none block"
