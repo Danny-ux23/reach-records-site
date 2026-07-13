@@ -22,6 +22,7 @@ export interface Socials {
   twitter?: string;
   spotify?: string;
   apple?: string;
+  tiktok?: string;
 }
 
 export interface Artist {
@@ -38,7 +39,7 @@ export interface Artist {
   youtubeVideos: YoutubeVideo[];
   photos: string[];
   syncExamples: SyncExample[];
-  discoUrl: string;
+  discoUrl?: string;
   socials: Socials;
   legacy?: boolean;
 }
@@ -571,6 +572,35 @@ export const artists: Artist[] = [
       facebook: "https://www.facebook.com/2819church/",
       spotify: "https://open.spotify.com/artist/6d6h6Yy5YXwnyM1AZpomir",
       apple: "https://music.apple.com/us/artist/2819-worship/1736602113",
+    },
+  },
+  {
+    name: "Alexxander",
+    slug: "alexxander",
+    genre: "Latin Gospel / Reggaetón",
+    accentColor: "#D18A4A",
+    bio: "Hailing from Bayamón, Puerto Rico, Alexxander is a groundbreaking artist redefining the boundaries of Latin gospel music. As the son of legendary gospel superstar Luis Santiago, Alexxander spent his childhood immersed in music, often spending late nights in the studio, watching his father fine-tune lyrics. This early exposure ignited his passion for storytelling and lyrical precision, nurturing a deep love for creating music that inspires and uplifts. Blending the raw energy of pop rock influences with the infectious rhythms of reggaeton, Alexxander's sound is a bold fusion of genres, underpinned by a message of hope & faith. In a major career milestone, Alexxander is the first exclusively Spanish-language artist signed to Reach Records, the Atlanta-based label founded by 4x GRAMMY winning artist Lecrae. This historic partnership signals the rise of a new voice in faith-based music — one that bridges cultures, genres, and languages while staying rooted in a message of hope. Now, Alexxander has new music on the way with notable artists and industry players like Musiko, AJ Ramos, and others.",
+    profileImage: "/images/artists/alexxander.jpg",
+    heroImage: "/images/artists/alexxander.jpg",
+    stats: [
+      { value: "128K+", label: "Monthly Listeners" },
+      { value: "28K+", label: "Instagram Followers" },
+      { value: "25K+", label: "YouTube Subscribers" },
+    ],
+    accomplishments: [
+      "First exclusively Spanish-language artist signed to Reach Records",
+      "Son of gospel superstar Luis Santiago",
+      "Released singles: \"Tres Deseos,\" \"Celebrar,\" and \"Química\"",
+    ],
+    youtubeVideos: [],
+    photos: [],
+    syncExamples: [],
+    socials: {
+      instagram: "https://www.instagram.com/alexxandermusica/",
+      youtube: "https://www.youtube.com/channel/UCOdiLrRQERavmdqhzrP5qLQ",
+      spotify: "https://open.spotify.com/artist/0J2jZKEeGZ01I7D86P6VJp?autoplay_ok=1",
+      apple: "https://music.apple.com/us/artist/alexxander/1499584312",
+      tiktok: "https://www.tiktok.com/@alexxandermusica",
     },
   },
 ];

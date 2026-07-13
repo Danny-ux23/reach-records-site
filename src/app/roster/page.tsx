@@ -6,7 +6,10 @@ import Image from "next/image";
 import Nav from "@/components/Nav";
 import { artists } from "@/data/artists";
 
-const rosterArtists = artists.filter((a) => !a.legacy);
+const rosterArtists = [
+  ...artists.filter((a) => !a.legacy),
+  ...artists.filter((a) => a.legacy),
+];
 
 export default function RosterPage() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -113,29 +116,45 @@ export default function RosterPage() {
         {rosterArtists.map((artist, i) => {
           const isActive = i === activeIndex;
           const isHovered = i === hoveredIndex;
+          const isFirstLegacy = artist.legacy && !rosterArtists[i - 1]?.legacy;
 
           return (
-            <div
-              key={artist.slug}
-              className="cursor-pointer outline-none"
-              onMouseEnter={() => setHoveredIndex(i)}
-              onMouseLeave={() => setHoveredIndex(null)}
-              onClick={() => router.push(`/artists/${artist.slug}`)}
-            >
-              <span
-                className="font-bold uppercase leading-none block"
-                style={{
-                  fontSize: "clamp(1.8rem, 3.8vw, 3.2rem)",
-                  letterSpacing: "-0.02em",
-                  color:
-                    isHovered || isActive ? "#EFEFEB" : "rgba(239,239,235,0.15)",
-                  paddingTop: "0.5rem",
-                  paddingBottom: "0.5rem",
-                  transition: "color 0.3s ease",
-                }}
+            <div key={artist.slug}>
+              {isFirstLegacy && (
+                <p
+                  className="text-[9px] font-light tracking-[0.35em] uppercase"
+                  style={{
+                    color: "rgba(239,239,235,0.25)",
+                    marginTop: "0.75rem",
+                    marginBottom: "0.25rem",
+                    paddingTop: "0.75rem",
+                    borderTop: "1px solid rgba(239,239,235,0.12)",
+                  }}
+                >
+                  Legacy
+                </p>
+              )}
+              <div
+                className="cursor-pointer outline-none"
+                onMouseEnter={() => setHoveredIndex(i)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                onClick={() => router.push(`/artists/${artist.slug}`)}
               >
-                {artist.name}
-              </span>
+                <span
+                  className="font-bold uppercase leading-none block"
+                  style={{
+                    fontSize: "clamp(1.8rem, 3.8vw, 3.2rem)",
+                    letterSpacing: "-0.02em",
+                    color:
+                      isHovered || isActive ? "#EFEFEB" : "rgba(239,239,235,0.15)",
+                    paddingTop: "0.5rem",
+                    paddingBottom: "0.5rem",
+                    transition: "color 0.3s ease",
+                  }}
+                >
+                  {artist.name}
+                </span>
+              </div>
             </div>
           );
         })}

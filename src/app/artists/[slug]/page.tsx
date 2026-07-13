@@ -178,20 +178,27 @@ export default async function ArtistPage({ params }: { params: Promise<{ slug: s
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.54 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
               </a>
             )}
+            {artist.socials.tiktok && (
+              <a href={artist.socials.tiktok} target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-40" style={{ color: "#1a1a1a" }} aria-label="TikTok">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82c-1.008-.985-1.575-2.328-1.6-3.82h-3.02v13.75c-.06 1.5-1.29 2.7-2.8 2.7-.462 0-.912-.114-1.31-.33-.958-.52-1.5-1.63-1.34-2.72.16-1.09 1.08-1.98 2.17-2.13.34-.05.68-.03 1 .05V10.2a5.98 5.98 0 0 0-1-.08c-3.19 0-5.77 2.58-5.77 5.77 0 1.83.85 3.46 2.18 4.52a5.75 5.75 0 0 0 3.59 1.25c3.19 0 5.77-2.58 5.77-5.77V8.79a9.14 9.14 0 0 0 5.33 1.7V7.47c-1.1 0-2.13-.34-2.98-.92a5.86 5.86 0 0 1-.22-.73z"/></svg>
+              </a>
+            )}
           </div>
-          <a
-            href={artist.discoUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 px-7 py-4 text-[11px] tracking-[0.18em] uppercase font-medium transition-all hover:opacity-70"
-            style={{
-              border: "1px solid #1a1a1a",
-              color: "#1a1a1a",
-            }}
-          >
-            {artist.discoUrl.includes("discogs.com") ? "View on Disco" : "Visit Website"}
-            <span style={{ fontSize: "16px" }}>→</span>
-          </a>
+          {artist.discoUrl && (
+            <a
+              href={artist.discoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 px-7 py-4 text-[11px] tracking-[0.18em] uppercase font-medium transition-all hover:opacity-70"
+              style={{
+                border: "1px solid #1a1a1a",
+                color: "#1a1a1a",
+              }}
+            >
+              {artist.discoUrl.includes("discogs.com") ? "View on Disco" : "Visit Website"}
+              <span style={{ fontSize: "16px" }}>→</span>
+            </a>
+          )}
         </div>
       </section>
 
